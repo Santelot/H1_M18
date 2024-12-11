@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-5').style.display = 'none';
+                document.getElementById('activity-1').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - H1 - M18</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+<!-- Actividad 1 -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_ritual')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 2.5 minutos</div>
+        <div class="subtitle">Preparación para adentrarse en técnicas avanzadas de prompting.</div>
+    </div>
+    <div id="saludo_ritual" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 2 "Bienvenida".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hola, Genios. Hoy pondremos en práctica técnicas avanzadas de prompting para resolver un reto práctico. Vamos a explorar cómo estas herramientas potencian nuestra creatividad. ¡Comencemos!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 3 "¿Cómo Están?".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de empezar, quiero saber cómo se sienten hoy. Si están listos para aprender algo nuevo, levanten los brazos como si estuvieran cargando algo pesado. Si necesitan más energía, sacúdanse las manos."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 4 "Gracias por Asistir".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, juntemos nuestras manos en agradecimiento por estar aquí y listos para aprender algo increíble juntos. ¡Gracias por asistir, Genios!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 5 "Objetivos de la Misión".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy vamos a enfocarnos en dos cosas importantes: 1. Combinar técnicas avanzadas de prompting. 2. Aplicar estas técnicas para redactar un ensayo persuasivo con la ayuda de ChatGPT."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 2 -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">🤸‍♂️ Actividad 2: State Change ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Pausa activa para relajar la mente y enfocar la atención.</div>
+    </div>
+    <div id="state_change" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 6 "Manos Mágicas".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, vamos a realizar una breve pausa para despejar nuestra mente y prepararnos para el trabajo. Froten sus manos rápidamente hasta que se sientan calientes, luego colóquenlas suavemente sobre sus ojos cerrados. Esto ayudará a reducir tensiones y enfocar la mente."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 7 "Cronómetro - 1 Minuto".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 8 "Reflexión sobre Manos Mágicas".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Esta breve actividad no solo relaja los músculos de nuestros ojos, sino que también calma la mente y mejora nuestra concentración. Pequeños ejercicios como este son clave para mantenernos enfocados en tareas importantes. ¡Bien hecho!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 3 -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">👥 Actividad 3: Team Gnius ⏰ Tiempo: 3 minutos</div>
+        <div class="subtitle">Formación de equipos para colaborar en el desafío.</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 9 "Formación de Equipos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, para esta actividad vamos a trabajar en equipos de dos personas. Busquen a alguien con quien no hayan colaborado recientemente. ¡Tienen un minuto para organizarse!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 10 "Cronómetro - 1 Minuto".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 11 "Recoger Magic Tablets".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora que tienen sus equipos, un representante de cada uno puede pasar a recoger las Magic Tablets. ¡Tienen un minuto para hacerlo!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 12 "Cronómetro - 1 Minuto".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 4 -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">🚀 Actividad 4: Challenge ⏰ Tiempo: 38.5 minutos</div>
+        <div class="subtitle">Aplicación práctica de técnicas avanzadas de prompting.</div>
+    </div>
+    <div id="challenge" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 13 "Introducción al Challenge".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, hoy pondremos en práctica las técnicas avanzadas de prompting para redactar un ensayo persuasivo. Este desafío está dividido en etapas que nos guiarán paso a paso. Aprenderemos cómo utilizar frameworks para estructurar nuestras ideas y lograremos crear argumentos sólidos y convincentes. ¡Prepárense para explorar su creatividad y habilidades de escritura!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (0.5 minutos):</strong> Proyectar Diapositiva 14 "Explicación del Challenge".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "En este desafío, elegirán un tema importante para ustedes y lo convertirán en un ensayo persuasivo. Trabajarán en equipo y usarán las técnicas STAR y BAB para guiar a la IA en la planificación y estructuración de su ensayo. Este proceso no solo fortalecerá sus habilidades de prompting, sino que también les permitirá construir argumentos sólidos sobre temas que les apasionen."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 15 "Etapa 1: Selección del Tema".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Para empezar, identifiquen un tema relacionado con un problema social en México que les apasione y quieran abordar. Usen la hoja de trabajo para hacer una lluvia de ideas sobre temas como conservación ambiental, reforma educativa, privacidad digital o acceso a la salud. Investiguen brevemente cada tema para decidir cuál les inspira más. Finalmente, seleccionen el tema que creen que les permitirá desarrollar un argumento persuasivo fuerte. Este paso definirá la dirección de su ensayo, así que tómense el tiempo necesario para elegir bien."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (3 minutos):</strong> Proyectar Diapositiva 16 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 5 (0.5 minutos):</strong> Proyectar Diapositiva 17 "Etapa 2: Técnicas de Prompting".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, vamos a profundizar en las técnicas STAR y BAB. STAR se centra en describir la situación, definir la tarea, detallar las acciones y mostrar el resultado. BAB, por otro lado, conecta el estado actual (antes), el objetivo deseado (después) y el puente que conecta ambos puntos. Combinando estas dos técnicas, podemos estructurar nuestro ensayo de manera lógica y persuasiva. Lean el material para entender cómo estas herramientas pueden ayudarnos a guiar a la IA en la planificación del ensayo."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 6 (2 minutos):</strong> Proyectar Diapositiva 18 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 7 (0.5 minutos):</strong> Proyectar Diapositiva 19 "Etapa 3: Prompt Combinado".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora que entendemos las técnicas, es momento de aplicarlas creando un prompt combinado. Usen el framework STAR para describir la situación actual y el objetivo del ensayo, y el framework BAB para conectar la introducción con la conclusión a través de un puente lógico. Asegúrense de incluir detalles específicos para que la IA pueda generar un esquema claro y efectivo. Recuerden que un buen prompt es claro, estructurado y completo. Utilicen la plantilla proporcionada para construir su prompt de manera ordenada."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 8 (3 minutos):</strong> Proyectar Diapositiva 20 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 9 (0.5 minutos):</strong> Proyectar Diapositiva 21 "Etapa 4: Interacción con la IA".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Con su prompt combinado listo, ahora es momento de ponerlo en acción. Introduzcan su prompt en ChatGPT y revisen cuidadosamente la respuesta. Asegúrense de que el esquema del ensayo sea claro, incluya los argumentos principales y las estrategias persuasivas necesarias. Si detectan algo que les gustaría mejorar, hagan preguntas adicionales a la IA o pidan detalles más específicos. Documenten todas las sugerencias que reciban en las plantillas proporcionadas para el esquema del ensayo."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 10 (5 minutos):</strong> Proyectar Diapositiva 22 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 11 (0.5 minutos):</strong> Proyectar Diapositiva 23 "Etapa 5: Redacción del Ensayo".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora es momento de transformar el esquema en un borrador de su ensayo. Utilicen el esquema generado y enfoquen sus argumentos en persuadir al lector. Incluyan un lenguaje claro y estrategias retóricas para fortalecer su mensaje. Pueden utilizar datos y ejemplos relevantes para respaldar sus ideas. No olviden citar cualquier fuente de información que utilicen. Trabajen con concentración, ya que este borrador será la base para sus revisiones y la versión final."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 12 (10 minutos):</strong> Proyectar Diapositiva 24 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 13 (0.5 minutos):</strong> Proyectar Diapositiva 25 "Etapa 6: Revisión entre Pares".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora compartirán su ensayo con un compañero para obtener retroalimentación. Usen las guías de revisión para evaluar la estructura, la claridad de los argumentos y la efectividad persuasiva. Lean cuidadosamente el ensayo de su compañero y ofrezcan sugerencias constructivas. Al finalizar, discutan brevemente las observaciones realizadas. Recuerden que este proceso de revisión les ayudará a mejorar significativamente sus ensayos antes de presentarlos en su versión final."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 14 (5 minutos):</strong> Proyectar Diapositiva 26 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 15 (0.5 minutos):</strong> Proyectar Diapositiva 27 "Etapa 7: Revisión Final".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Para finalizar, tomen la retroalimentación recibida y revisen su ensayo. Realicen ajustes para fortalecer sus argumentos, corregir errores y mejorar la claridad. Asegúrense de que su ensayo cumpla con los requisitos de formato y esté listo para ser presentado. Este es su momento de pulir los detalles y garantizar que su trabajo refleje su esfuerzo y aprendizaje."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 16 (5 minutos):</strong> Proyectar Diapositiva 28 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 17 (0.5 minutos):</strong> Proyectar Diapositiva 29 "Revisión de Objetivos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora que hemos concluido, revisemos lo que logramos: 1. Aplicamos técnicas avanzadas de prompting para guiar a la IA. 2. Creamos un ensayo persuasivo estructurado y claro. 3. Trabajamos en equipo para mejorar nuestras ideas a través de la retroalimentación. ¡Han hecho un trabajo excelente, Genios! Este desafío les permitió desarrollar habilidades prácticas y creativas que pueden aplicar en muchos contextos."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 18 (0.5 minutos):</strong> Proyectar Diapositiva 30 "You’ve Got Mon-e".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, su dedicación y esfuerzo en este desafío han sido increíbles. ¡Han ganado Mon-e por su compromiso y creatividad! Este reconocimiento refleja su capacidad para aplicar técnicas avanzadas y resolver problemas del mundo real. ¡Felicidades por su gran trabajo!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 5 -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('honor_the_dojo')">
+        <div class="title">🙏 Actividad 5: Honor The Dojo ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Cierre y organización del espacio de aprendizaje.</div>
+    </div>
+    <div id="honor_the_dojo" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (2 minutos):</strong> Proyectar Diapositiva 31 "Honor The Dojo".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, para cerrar esta misión, vamos a honrar el espacio en el que trabajamos. Cada equipo, pase al frente a devolver sus Magic Tablets y asegúrense de que el área esté limpia y ordenada. Esto nos ayuda a trabajar mejor juntos y a respetar nuestro entorno. ¡Gracias por su esfuerzo hoy!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+</div>
+
+</body>
+</html>
